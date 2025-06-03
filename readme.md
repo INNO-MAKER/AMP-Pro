@@ -69,7 +69,7 @@ Playback Options→Audio Output→I2S DAC→ **On**→DAC Model→**MERUS AMP pi
 
 Or Playback Options→Audio Output→I2S DAC→ **On**→DAC Model→**Innomaker Amp Pro**→reboot
 
-Playback Options→Volume Options→Mixer Type→**software**
+Playback Options→Volume Options→Mixer Type→**hardware**
 
 #### 4.MoOde Setup
 
