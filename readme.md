@@ -31,9 +31,21 @@ Note:
 | Green Connector PIN-5  | Left Speaker Positive/+  |
 | Green Connector  PIN-6 | Left Speaker Negative/-  |
 
+
+
+The following are the typical application parameters for speakers from the official Infineon datasheet. Infineon recommends using speakers with a 4–8 Ω load in typical applications. Therefore, you may consider selecting speakers within this range to achieve the best performance.
+
+
+
+（1）2x30W continuous output power (RL = 8Ω at 22V, PMP4, 10% THD+N level, without heatsink)
+
+（2）2×80W peak output power (26V PVDD, RL = 4Ω, 10% THD+N level)
+
+
+
 Note:
 
-(1) The total power of the board is 80W, with each single channel supporting up to 40W.
+(1) The total power of the board is 2x80W, with each single channel supporting up to 80W.
 
 (2) Generally, it is recommended that the power input for the AMP HAT board be 1.1 to 1.3 times greater than the combined power of the two speakers you choose. The power supply's maximum output power can be calculated by multiplying its voltage and current. For example, a 20V/5A power supply can provide a maximum output power of 100W.
 
@@ -152,6 +164,10 @@ dtoverlay=merus-amp
 ```
 
 2.Settings→System→Audio→Audio output device→**MERUS AMP piHat ZW**→reboot.
+
+
+
+
 
 
 
