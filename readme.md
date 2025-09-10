@@ -14,11 +14,11 @@ If you still cannot understand the wiring order from the above description, plea
 
 Amp Pro and Amp Pro Mini:
 
-| Pins                   | Description                         |
-| ---------------------- | ----------------------------------- |
-| DC Jack                | 9-24V, 5.5mm barrell connector      |
-| Green Connector  PIN-1 | Alternative Power supply Positive/+ |
-| Green Connector  PIN-2 | Alternative Power supply Negative/- |
+| Pins                   | Description                             |
+| ---------------------- | --------------------------------------- |
+| DC Jack                | 9-24V, 5.5mm barrell connector          |
+| Green Connector  PIN-1 | Alternative Power supply Positive/+     |
+| Green Connector  PIN-2 | Alternative Power supply Negative/-/GND |
 
 Note: 
 
