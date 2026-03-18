@@ -1,0 +1,35 @@
+PiCorePlayer Configuration for Innomaker HiFi AMP-PRO Hat
+
+Initial steps:
+* Load the appropriate PiCorePlayer image for your device & architecture.  The following steps used piCorePlayer 11.1.0-64bit for Raspberry Pi 4.
+    E.g., on Linux systems, use the Raspberry Pi Imager application, choose device (‘Raspberry Pi 4’), choose OS (‘Media Player OS’ → ‘piCorePlayer’), choose SD card destination and write.  Then transfer the SD card to your Pi.
+* Boot and configure for your network etc. as per piCorePlayer documentation.  See https://docs.picoreplayer.org/getting-started/.
+
+Innomaker Amp Hat Pro specific steps:
+
+    1) Do enable SSH for piCorePlayer (it is not enabled by default.  You will need to use it later.)
+    2) When prompted, choose the option to set up audio player later via the squeezelite menu.
+    3) In the Squeezelite Settings tab, set the first dropdown (‘Do this First: Select Audio output’) to ‘Merus Audio Amp’.
+    4) Save & reboot piCorePlayer.
+    5) SSH to your Pi  (see https://docs.picoreplayer.org/how-to/access_pcp_via_ssh/ )
+        a) Mount the boot partition (e.g., sudo mount /mnt/mmcblk0p1)
+        b) using the default included editor, vim, edit the config.txt file (sudo vi /mnt/mmcblk0p1/config.txt)
+            1) ensure you see the following setting (the squeezelite setup should have done this):
+                A) dtoverlay=merus-amp
+            2) change the parameter “dtparam=audio=on” to 
+                A) dtparam=audio=off # This disables onboard audio to allow the Merus amp to work
+            3) remove/comment out this line (I added a # to comment it out but leave for reference)
+                A) #dtparam=spi=on ## Remove this line for use with Merus chip hats (like the InnoMaker Hifi Amp hat Pro)
+        c) save the file
+    6) Go back to Squeezelite and reboot the piCorePlayer to pick up the settings changes
+    7) Squeezelite settings should now show Output setting; “hw:CARD=sndrpimerusamp”
+    8) Continue setting up Squeezelite settings (note that not all of these may be necessary, but they are what are working well in my network of players):
+        a) In the 3rd box of ALSA setting, enter 24 (this is the bitrate for sample format)
+        b) Set buffer size settings to 20000:500000
+        c) Set ‘Max sample rate’ to 48000
+        d) Save settings
+        e) Squeezelite will restart itself to pick up your saved changes and should indicate a green check icon and text ‘Squeezelite is running’
+        f) If Squeezelite does not auto-start after rebooting piCorePlayer, then something may be misconfigured.
+        g) If Squeezelite is correctly identifying and loading your “Merus Audio Amp” hat, the ALSA Mixer adjustment screen will show a set of controls; however, changes to ALSA Mixer settings within Squeelite menus do not seem to persist as of this post.
+        h) Connect a speaker to the hat and run the “Speaker Test” to confirm output is audible.
+
